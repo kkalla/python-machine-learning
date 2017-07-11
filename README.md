@@ -1,4 +1,5 @@
 # python-machine-learning
+<<<<<<< HEAD
 아주대학교 BDS과정을 위한 REPO입니다. Python Machine Learning, 2016, Packt Publishing 을 참고하여 작성하였습니다.
 ## 시작하기
 ### Install packages
@@ -21,3 +22,8 @@ conda update <package-name>
 - scikit-learn 0.15.2
 - matplotlib 1.4.0
 - pandas 0.15.2
+=======
+아주대학교 BDS과정을 위한 REPO입니다.
+## Install packege
+
+>>>>>>> origin/master
