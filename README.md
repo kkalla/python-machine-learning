@@ -3,18 +3,18 @@
 ## 시작하기
 ### Install packages
 파이썬을 설치한 후에, 추가 파이썬 패키지를 설치하기 위해 터미널의 명령행에서 pip를 실행 할 수 있다.
-pip install *<package-name>*
+pip install *\<package-name\>*
 이미 설치한 패키지는 --upgrade 플래그를 사용해서 업데이트.
-pip install *<package-name>* --upgrade
+pip install *\<package-name\>* --upgrade
 ### Anaconda of Continuum Analytics
 과학적 계산을 위한 다른 파이썬 배포판.
 설치 프로그램: http://continuum.io/downloads#py34
 빠른 실행 안내서: https://store.continuum.io/static/img/Anaconda-Quickstart.pdf
 
 설치후 새로운 패키지 설치는
-conda install *<package-name>*
+conda install *\<package-name\>*
 업데이트는
-conda update *<package-name>*
+conda update *\<package-name\>*
 ### 책에서 사용한 패키지들
 - NumPy 1.9.1
 - SciPy 0.14.0
