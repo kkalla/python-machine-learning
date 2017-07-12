@@ -5,7 +5,7 @@
 파이썬을 설치한 후에, 추가 파이썬 패키지를 설치하기 위해 터미널의 명령행에서 pip를 실행 할 수 있다.  
 pip install *\<package-name\>*  
 이미 설치한 패키지는 --upgrade 플래그를 사용해서 업데이트.  
-pip install *\<package-name\>* --upgrade  
+pip install *\<package-name\>* --upgrade   
 Check version of packages
 python -m pip show *\<package_name\>*
 ### Anaconda of Continuum Analytics
