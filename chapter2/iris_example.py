@@ -1,4 +1,4 @@
-# Perceptron learning algorithm
+# Perceptron learning algorithm & Adaline example
 # reference by python machine learning, 2016 
 # Sebastian Raschka, Packt publishing
 
