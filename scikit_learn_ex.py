@@ -1,5 +1,5 @@
 # Scikit-learn example using iris data
-
+import matplotlib.pyplot as plt
 from sklearn import datasets
 import numpy as np
 iris = datasets.load_iris()
