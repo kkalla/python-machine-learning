@@ -71,7 +71,7 @@ forest = RandomForestClassifier(criterion='entropy',n_estimators=10,
 forest.fit(X_train,y_train)
 pdr2.plot_decision_regions(X_combined,y_combined,classifier=forest,
                            test_idx=range(105,150))
-plt.xlable('petal length')
+plt.xlabel('petal length')
 plt.ylabel('petal width')
 plt.legend(loc='upper left')
 plt.show()
