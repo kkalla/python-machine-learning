@@ -29,3 +29,6 @@ conda update *\<package-name\>*
 ## Learn Python Programming
 You can learn python programming [here](https://www.programiz.com/python-programming) and see documentation for python 3.6.2rc2 [here](https://docs.python.org/3/)
 
+## Contents
+- chapter 2: Training Machine Learning Algorithms
+- chapter 3: A tour of Machine learning classifiers using scikit-learn
