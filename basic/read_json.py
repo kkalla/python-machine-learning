@@ -22,4 +22,7 @@ records = [json.loads(line) for line in open(path,encoding='UTF8')]
 
 import pandas as pd
 data1 = pd.read_json(path,lines=True)
-data1.iloc[0]
+
+## Select
+## .loc -> label index / .iloc -> positionally index.
+data1.loc[0,'tz']
