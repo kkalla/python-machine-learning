@@ -4,6 +4,8 @@ Created on Wed Jul 26 12:12:59 2017
 
 @author: An joon Lee
 """
+import os
+os.chdir('chapter4')
 import numpy as np
 ## Selecting meaningful features
 ## L1 regularization
@@ -44,3 +46,26 @@ plt.show()
 ## Sequential feature selection algorithms
 ## dimensionality reduction: feature selection and feature extraction
 ## 1. Sequential Backward Selection (SBS)
+from sklearn.neighbors import KNeighborsClassifier
+from sequential_backward_selection import SBS
+knn = KNeighborsClassifier(n_neighbors=2)
+sbs = SBS(knn, k_features=1)
+sbs.fit(X_train_std, y_train)
+k_feat = [len(k) for k in sbs.subsets_]
+plt.plot(k_feat, sbs.scores_, marker='o')
+plt.ylim([0.7,1.1])
+plt.ylabel('Accuracy')
+plt.xlabel('Number of features')
+plt.grid()
+plt.show()
+## five features yielded good performance
+k5 = list(sbs.subsets_[7])
+print(df_wine.columns[1:][k5])
+## evaluate the performance of the KNN classifier on the original test set.
+knn.fit(X_train_std,y_train)
+print('Training accuracy:', knn.score(X_train_std,y_train))
+print('Test accuracy:', knn.score(X_test_std,y_test))
+## on selected 5-feature subset
+knn.fit(X_train_std[:,k5],y_train)
+print('Training accuracy:', knn.score(X_train_std[:,k5],y_train))
+print('Test accuracy:', knn.score(X_test_std[:,k5],y_test))
