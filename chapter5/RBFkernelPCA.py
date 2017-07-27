@@ -19,18 +19,21 @@ def rbf_kernel_pca(X, gamma, n_components):
     
     Parameters
     ----------
-    X: {NumPy ndarray}, shape = [n_samples, n_features]
+     X: {NumPy ndarray}, shape = [n_samples, n_features]
     
-    gamma: float
-        Tuning parameter of the RBF kernel
+     gamma: float
+         Tuning parameter of the RBF kernel
     
-    n_components: int
-        Number of principal components to return
+     n_components: int
+         Number of principal components to return
     
     Returns
     ------------
-    X_pc: {NumPy ndarray}, shape = [n_samples, k_features]
-      Projected dataset
+     X_pc: {NumPy ndarray}, shape = [n_samples, k_features]
+         Projected dataset
+      
+     lambdas: list
+         Eigenvalues
     """
     # Calculate pairwise squared Euclidean distances in the MxN D dataset.
     sq_dists = pdist(X, 'sqeuclidean')
@@ -48,6 +51,11 @@ def rbf_kernel_pca(X, gamma, n_components):
     eigvals, eigvecs = eigh(K)
     
     # Collect the top k eigvectors
-    X_pc = np.column_stack((eigvecs[:,-i] for i in range(1, n_components+1)))
+    alphas = np.column_stack((eigvecs[:,-i] for i in range(1, n_components+1)))
     
-    return X_pc
+    # Collect the correspoding eigenvalues
+    lambdas = [eigvals[-i] for i in range(1, n_components+1)]
+    
+    return alphas, lambdas
+
+    
