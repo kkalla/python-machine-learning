@@ -53,3 +53,4 @@ tree = DecisionTreeClassifier(max_depth=6)
 tree = tree.fit(X_train,y_train)
 export_graphviz(tree,max_depth=6,out_file = 'gstree.dot')
 ## in cmd dot -Tpng gstree.dot -o tree.png
+ 
