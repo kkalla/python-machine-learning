@@ -12,6 +12,7 @@ import pandas as pd
 df = pd.read_csv('data/movie_data.csv')
 from nltk.corpus import stopwords
 stop = stopwords.words('english')
+import time
 
 ## Split train and test set
 X_train = df.loc[:25000,'review'].values
@@ -42,9 +43,11 @@ param_grid = [{'vect__ngram_range': [(1,1)],
                  'clf__C': [1.0,10.0,100.0]}]
 lr_tfidf = Pipeline([('vect',tfidf),('clf',LogisticRegression(random_state=0))])
 gs_lr_tfidf = GridSearchCV(lr_tfidf, param_grid,scoring='accuracy',cv=5,
-                           verbose=1,n_jobs=-1)
+                           verbose=1,n_jobs=4)
+start = time.time()
 gs_lr_tfidf.fit(X_train,y_train)
-
+end = time.time()
+print('Execution time: {}'.format(end - start))
 ## Print best parameter set
 print('Best parameter set: {}'.format(gs_lr_tfidf.best_params_))
 
@@ -55,3 +58,18 @@ print('Test Accuracy: {:.3f}'.format(clf.score(X_test,y_test)))
 
 ## Naive Bayes classifier
 ## http://arxiv.org/pdf/1410.5329v3.pdf
+
+
+## save classifier
+import pickle
+import os
+dest = os.path.join('movieclf','pkl_objects')
+if not os.path.exists(dest):
+    os.makedirs(dest)
+pickle.dump(gs_lr_tfidf,open(os.path.join(dest, 'stopwords.pkl'),'wb'),
+            protocol = 4)
+pickle.dump(stop, open(os.path.join(dest, 'stopwords.pkl'),'wb'),
+            protocol = 4)
+pickle.dump(clf,
+            open(os.path.join(dest,'classifier.pkl'),'wb'),
+            protocol=4)

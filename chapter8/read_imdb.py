@@ -10,7 +10,7 @@ Created on Mon Jul 31 21:27:42 2017
 import pyprind
 import pandas as pd
 import os
-## os.chdir('chapter8')
+##os.chdir('chapter8')
 pbar = pyprind.ProgBar(50000)
 labels = {'pos':1, 'neg':0}
 df = pd.DataFrame()
