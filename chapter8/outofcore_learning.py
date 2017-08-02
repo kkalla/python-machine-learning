@@ -88,3 +88,16 @@ print('Accuracy: {:.3f}'.format(clf.score(X_test,y_test)))
 
 ## Update model using last 5000 documents
 clf = clf.partial_fit(X_test,y_test)
+
+## Save classifier
+import pickle
+import os
+dest = os.path.join('movieclassifier','pkl_objects')
+if not os.path.exists(dest):
+    os.makedirs(dest)
+pickle.dump(stop,
+            open(os.path.join(dest,'stopwords.pkl'),'wb'),
+            protocol = 4)
+pickle.dump(clf,
+            open(os.path.join(dest,'classifier.pkl'),'wb'),
+            protocol = 4)
