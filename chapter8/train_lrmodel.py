@@ -61,12 +61,14 @@ print('Test Accuracy: {:.3f}'.format(clf.score(X_test,y_test)))
 
 
 ## save classifier
+## dump - takes the object that we want to pickle
+## protocol = 4 - set to choose the latest and most efficient pickle protocol
 import pickle
 import os
 dest = os.path.join('movieclf','pkl_objects')
 if not os.path.exists(dest):
     os.makedirs(dest)
-pickle.dump(gs_lr_tfidf,open(os.path.join(dest, 'stopwords.pkl'),'wb'),
+pickle.dump(gs_lr_tfidf, open(os.path.join(dest, 'gs_lr.pkl'),'wb'),
             protocol = 4)
 pickle.dump(stop, open(os.path.join(dest, 'stopwords.pkl'),'wb'),
             protocol = 4)
